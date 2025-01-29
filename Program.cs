@@ -1,4 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<DBContext>(options => {
+
+    var connectionString = builder.Configuration.GetConnectionString("mysql");
+    options.UseMySql(connectionString,ServerVersion.AutoDetect(connectionString));
+
+});
+
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
@@ -20,9 +30,3 @@ app.MapPost("/login", (LoginDTO loginDTO) =>
 app.Run();
 
 
-public class LoginDTO
-{
-    public string Mail { get; set; } = default!;
-    public string Password { get; set; } = default!;
-
-}
