@@ -1,12 +1,16 @@
+using _NET_MinimalAPI.Domain.DTOs;
+using _NET_MinimalAPI.Domain.Entities;
 using _NET_MinimalAPI.Domain.Interfaces;
 using _NET_MinimalAPI.Domain.ModelViews;
 using _NET_MinimalAPI.Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+#region Buider
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IAdministratorService, AdministratorService>();
+builder.Services.AddScoped<IVehicleService, VehicleService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -19,6 +23,7 @@ builder.Services.AddDbContext<DBContext>(options => {
 });
 
 var app = builder.Build();
+#endregion
 
 #region Home
 app.MapGet("/", () => Results.Json(new Home()));
@@ -40,9 +45,28 @@ app.MapPost("admin/login", ([FromBody] LoginDTO loginDTO, IAdministratorService 
 });
 #endregion
 
+#region Vehicles
+app.MapPost("vehicles", ([FromBody] VehicleDTO vehicleDTO, IVehicleService vehicleService) =>
+{
+
+    var vehicle = new Vehicle
+    {
+        Name = vehicleDTO.Name,
+        Branch = vehicleDTO.Branch,
+        Year = vehicleDTO.Year,
+    };
+
+    vehicleService.Add(vehicle);
+
+    return Results.Created($"/vehicle/{vehicle.Id}", vehicle);
+
+
+});
+#endregion
+
+#region app
 app.UseSwagger();
 app.UseSwaggerUI();
-
 app.Run();
-
+#endregion
 
