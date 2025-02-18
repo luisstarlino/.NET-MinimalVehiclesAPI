@@ -1,6 +1,7 @@
 ﻿using _NET_MinimalAPI.Domain.Entities;
 using _NET_MinimalAPI.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace _NET_MinimalAPI.Domain.Services
 {
@@ -26,18 +27,21 @@ namespace _NET_MinimalAPI.Domain.Services
             _dbContext.SaveChanges();
         }
 
-        public List<Vehicle> GetAll(int page = 1, string? name = null, string? year = null)
+        public List<Vehicle> GetAll(int? page = 1, string? name = null, string? year = null)
         {
             var query = _dbContext.Vehicles.AsQueryable();
 
             if(!String.IsNullOrEmpty(name) )
             {
-                query = query.Where(v => EF.Functions.Like(v.Name.ToLower(), $"%{name.ToLower()}%"));
+                query = query.Where(v => EF.Functions.Like(v.Name.ToLower(), $"%{name}%"));
             }
 
             var dataPerPage = 10;
 
-            query = query.Skip((dataPerPage-1) * dataPerPage).Take(dataPerPage);
+            if(page > 1 )
+            {
+                query = query.Skip(((int)page - 1) * dataPerPage).Take(dataPerPage);
+            }
 
             return query.ToList();
 
