@@ -26,7 +26,7 @@ var app = builder.Build();
 #endregion
 
 #region Home
-app.MapGet("/", () => Results.Json(new Home()));
+app.MapGet("/", () => Results.Json(new Home())).WithTags("Home");
 #endregion
 
 #region Admin
@@ -42,7 +42,7 @@ app.MapPost("admin/login", ([FromBody] LoginDTO loginDTO, IAdministratorService 
         return Results.Unauthorized();
     }
 
-});
+}).WithTags("Admin");
 #endregion
 
 #region Vehicles
@@ -60,19 +60,53 @@ app.MapPost("vehicles", ([FromBody] VehicleDTO vehicleDTO, IVehicleService vehic
 
     return Results.Created($"/vehicle/{vehicle.Id}", vehicle);
 
-});
+}).WithTags("Vehicle");
 
-app.MapGet("vehicles", ([FromQuery] int? pagina,IVehicleService vehicleService) =>
+app.MapGet("vehicles", ([FromQuery] int? page,IVehicleService vehicleService) =>
 {
 
-    var vehicles = vehicleService.GetAll(pagina);
+    var vehicles = vehicleService.GetAll(page);
 
     if (vehicles.Count == 0) return Results.NoContent();
     else return Results.Ok(vehicles);
 
-    
+}).WithTags("Vehicle");
 
-});
+app.MapGet("vehicles/{id}", ([FromRoute] int id, IVehicleService vehicleService) =>
+{
+
+    var vehicle = vehicleService.GetUniqueById(id);
+
+    if (vehicle == null) return Results.NotFound();
+    else return Results.Ok(vehicle);
+
+}).WithTags("Vehicle");
+
+app.MapPut("vehicles/{id}", ([FromRoute] int id, VehicleDTO vehicleDTO, IVehicleService vehicleService) =>
+{
+    var vehicle = vehicleService.GetUniqueById(id);
+    if (vehicle == null) return Results.NotFound();
+
+    vehicle.Name = vehicleDTO.Name;
+    vehicle.Branch = vehicleDTO.Branch;
+    vehicle.Year= vehicleDTO.Year;
+
+    vehicleService.Update(vehicle);
+    return Results.Ok(vehicle);
+
+}).WithTags("Vehicle");
+
+app.MapDelete("vehicles/{id}", ([FromRoute] int id, IVehicleService vehicleService) =>
+{
+
+    var vehicle = vehicleService.GetUniqueById(id);
+
+    if (vehicle == null) return Results.NotFound();
+
+    vehicleService.Delete(vehicle);
+    return Results.Ok(vehicle);
+
+}).WithTags("Vehicle");
 #endregion
 
 #region app
