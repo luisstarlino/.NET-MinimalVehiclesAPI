@@ -18,7 +18,7 @@ public class DBContext : DbContext
                 Id = 1,
                 Mail = "admin@test.com",
                 Password = "123456",
-                Profile = "ADM"
+                Profile = "adm"
             }
         );
     }
