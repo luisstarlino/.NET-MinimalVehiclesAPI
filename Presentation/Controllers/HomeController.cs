@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace _NET_MinimalAPI.Presentation.Controllers
 {
-    [Route("/")] //[Route("[Controller]")]
+    [Route("/")]
     [ApiController]
     public class HomeController : Controller
     {

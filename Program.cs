@@ -10,8 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using System.Text;
 
 #region Buider
@@ -82,49 +80,6 @@ var app = builder.Build();
 #endregion
 
 #region Admin
-string CreateJwtToken(Administrator administrator)
-{
-    var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
-    var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-    var claims = new List<Claim>()
-    {
-        new Claim("Mail", administrator.Mail),
-        new Claim("Profile", administrator.Profile),
-        new Claim(ClaimTypes.Role, administrator.Profile)
-    };
-
-
-    var tk = new JwtSecurityToken(
-        claims: claims,
-        expires : DateTime.Now.AddDays(1),
-        signingCredentials: credentials
-    );
-
-    return new JwtSecurityTokenHandler().WriteToken(tk);
-}
-
-app.MapPost("admin/login", ([FromBody] LoginDTO loginDTO, IAdministratorService administratorService) =>
-{
-
-    var adm = administratorService.Login(loginDTO);
-    if (adm != null)
-    {
-        string _tk = CreateJwtToken(adm);
-        return Results.Ok(new AdministratorMVTk
-        {
-            Id = adm.Id,
-            Mail = adm.Mail,
-            Profile = adm.Profile,
-            Token = _tk
-        });
-    }
-    else
-    {
-        return Results.Unauthorized();
-    }
-
-}).AllowAnonymous().WithTags("Admin");
 
 app.MapPost("admin", ([FromBody] AdministratorDTO admDTO, IAdministratorService administratorService) =>
 {
