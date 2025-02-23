@@ -75,11 +75,10 @@ builder.Services.AddDbContext<DBContext>(options => {
 
 });
 
-var app = builder.Build();
-#endregion
+// --- Allow Controllers
+builder.Services.AddControllers();
 
-#region Home
-app.MapGet("/", () => Results.Json(new Home())).AllowAnonymous().WithTags("Home");
+var app = builder.Build();
 #endregion
 
 #region Admin
@@ -305,6 +304,10 @@ app.UseSwagger();
 app.UseSwaggerUI();
 app.UseAuthentication();
 app.UseAuthorization();
+
+// --- Mapping Controllers
+app.MapControllers();
+app.UseRouting();
 app.Run();
 #endregion
 
