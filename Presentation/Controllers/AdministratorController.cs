@@ -35,10 +35,10 @@ namespace _NET_MinimalAPI.Presentation.Controllers
         [HttpPost]
         [Tags("Admin")]
         [AllowAnonymous]
-        public IActionResult Login([FromBody] LoginDTO loginDTO, IAdministratorService administratorService)
+        public IActionResult Login([FromBody] LoginDTO loginDTO)
         {
 
-            var adm = administratorService.Login(loginDTO);
+            var adm = _administratorService.Login(loginDTO);
             if (adm != null)
             {
                 var _key = _configuration.GetSection("Jwt").Value;
@@ -67,7 +67,7 @@ namespace _NET_MinimalAPI.Presentation.Controllers
         [HttpPost]
         [Tags("Admin")]
         [Authorize(Roles ="adm")]
-        public IActionResult CreateAdministrator([FromBody] AdministratorDTO admDTO, IAdministratorService administratorService)
+        public IActionResult CreateAdministrator([FromBody] AdministratorDTO admDTO)
         {
             // --- Handle
             var messagesError = new ErrorHandler();
@@ -86,7 +86,7 @@ namespace _NET_MinimalAPI.Presentation.Controllers
 
             };
 
-            administratorService.Add(adm);
+            _administratorService.Add(adm);
 
             return Created($"/vehicle/{adm}", adm);
         }
@@ -100,9 +100,9 @@ namespace _NET_MinimalAPI.Presentation.Controllers
         [HttpGet]
         [Tags("Admin")]
         [Authorize(Roles = "adm")]
-        public IActionResult GetAllAdmistrators([FromQuery] int? page, IAdministratorService administratorService)
+        public IActionResult GetAllAdmistrators([FromQuery] int? page)
         {
-            var admsDB = administratorService.GetAll(page);
+            var admsDB = _administratorService.GetAll(page);
             var admsMV = new List<AdministratorMV>();
 
             if (admsDB.Count == 0) return NoContent();
@@ -124,9 +124,9 @@ namespace _NET_MinimalAPI.Presentation.Controllers
         [Tags("Admin")]
         [Route("/{id}")]
         [Authorize(Roles = "adm")]
-        public IActionResult GetUniqueAdministrator([FromRoute] int id, IAdministratorService administratorService)
+        public IActionResult GetUniqueAdministrator([FromRoute] int id)
         {
-            var admDB = administratorService.GetUniqueById(id);
+            var admDB = _administratorService.GetUniqueById(id);
 
             if (admDB == null) return NotFound();
 
