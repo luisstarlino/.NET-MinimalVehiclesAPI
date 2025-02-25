@@ -1,10 +1,13 @@
-﻿using _NET_MinimalAPI.Domain.Interfaces;
+﻿using _NET_MinimalAPI.Domain.DTOs;
+using _NET_MinimalAPI.Domain.Enuns;
+using _NET_MinimalAPI.Domain.Interfaces;
 using _NET_MinimalAPI.Domain.ModelViews;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Permissions;
 using System.Text;
 
 namespace _NET_MinimalAPI.Presentation.Controllers
@@ -22,8 +25,15 @@ namespace _NET_MinimalAPI.Presentation.Controllers
             this._configuration = configuration;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="loginDTO"></param>
+        /// <param name="administratorService"></param>
+        /// <returns></returns>
         [Route("/login")]
         [HttpPost]
+        [Tags("Admin")]
         [AllowAnonymous]
         public IActionResult Login([FromBody] LoginDTO loginDTO, IAdministratorService administratorService)
         {
@@ -46,6 +56,87 @@ namespace _NET_MinimalAPI.Presentation.Controllers
             {
                 return Unauthorized();
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="admDTO"></param>
+        /// <param name="administratorService"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Tags("Admin")]
+        [Authorize(Roles ="adm")]
+        public IActionResult CreateAdministrator([FromBody] AdministratorDTO admDTO, IAdministratorService administratorService)
+        {
+            // --- Handle
+            var messagesError = new ErrorHandler();
+            if (admDTO.Profile == null) messagesError.Messages.Add("Parameter 'Profile' as required!");
+            if (String.IsNullOrEmpty(admDTO.Password)) messagesError.Messages.Add("Parameter 'Password' as required!");
+            if (String.IsNullOrEmpty(admDTO.Mail)) messagesError.Messages.Add("Parameter 'Mail' as required!");
+
+
+            if (messagesError.Messages.Count > 0) return BadRequest(messagesError);
+
+            var adm = new Administrator
+            {
+                Mail = admDTO.Mail,
+                Password = admDTO.Password,
+                Profile = admDTO.Profile.ToString() ?? ProfileENUM.editor.ToString(),
+
+            };
+
+            administratorService.Add(adm);
+
+            return Created($"/vehicle/{adm}", adm);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="administratorService"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Tags("Admin")]
+        [Authorize(Roles = "adm")]
+        public IActionResult GetAllAdmistrators([FromQuery] int? page, IAdministratorService administratorService)
+        {
+            var admsDB = administratorService.GetAll(page);
+            var admsMV = new List<AdministratorMV>();
+
+            if (admsDB.Count == 0) return NoContent();
+
+            foreach (Administrator adm in admsDB)
+            {
+                admsMV.Add(new AdministratorMV()
+                {
+                    Id = adm.Id,
+                    Mail = adm.Mail,
+                    Profile = adm.Profile,
+                });
+            };
+
+            return Ok(admsMV);
+        }
+
+        [HttpGet]
+        [Tags("Admin")]
+        [Route("/{id}")]
+        [Authorize(Roles = "adm")]
+        public IActionResult GetUniqueAdministrator([FromRoute] int id, IAdministratorService administratorService)
+        {
+            var admDB = administratorService.GetUniqueById(id);
+
+            if (admDB == null) return NotFound();
+
+
+            else return Ok(new AdministratorMV()
+            {
+                Id = admDB.Id,
+                Profile = admDB.Profile,
+                Mail = admDB.Mail,
+            });
         }
 
 
