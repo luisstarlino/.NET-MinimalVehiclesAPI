@@ -12,8 +12,8 @@ using System.Text;
 
 namespace _NET_MinimalAPI.Presentation.Controllers
 {
-    [Route("admin")]
     [ApiController]
+    [Route("admin")]
     public class AdministratorController : Controller
     {
         private readonly IAdministratorService _administratorService;
@@ -41,7 +41,7 @@ namespace _NET_MinimalAPI.Presentation.Controllers
             var adm = _administratorService.Login(loginDTO);
             if (adm != null)
             {
-                var _key = _configuration.GetSection("Jwt").Value;
+                var _key = GetConfigurationTokenKey();
 
                 string _tk = CreateJwtToken(adm, _key!);
                 return Ok(new AdministratorMVTk
@@ -122,7 +122,7 @@ namespace _NET_MinimalAPI.Presentation.Controllers
 
         [HttpGet]
         [Tags("Admin")]
-        [Route("/{id}")]
+        [Route("{id}")]
         [Authorize(Roles = "adm")]
         public IActionResult GetUniqueAdministrator([FromRoute] int id)
         {
@@ -161,6 +161,18 @@ namespace _NET_MinimalAPI.Presentation.Controllers
             );
 
             return new JwtSecurityTokenHandler().WriteToken(tk);
+        }
+
+        private string GetConfigurationTokenKey()
+        {
+            var foundValue = _configuration["Jwt:Key"];
+
+            if(string.IsNullOrEmpty(foundValue))
+            {
+                return "";
+            }
+
+            return foundValue;
         }
     }
 }

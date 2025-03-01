@@ -15,7 +15,7 @@ using System.Text;
 #region Buider
 var builder = WebApplication.CreateBuilder(args);
 
-var key = builder.Configuration.GetSection("Jwt").ToString();
+var key = builder.Configuration["Jwt:Key"];
 
 builder.Services.AddAuthentication(options =>
 {
@@ -82,12 +82,13 @@ var app = builder.Build();
 #region app
 app.UseSwagger();
 app.UseSwaggerUI();
-app.UseAuthentication();
-app.UseAuthorization();
+
+app.UseRouting();            // 1 - configure routing
+app.UseAuthentication();     // 2 - Add Authentication
+app.UseAuthorization();      // 3 - So, add authorization
 
 // --- Mapping Controllers
 app.MapControllers();
-app.UseRouting();
 app.Run();
 #endregion
 

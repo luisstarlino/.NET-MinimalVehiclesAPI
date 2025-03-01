@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace _NET_MinimalAPI.Presentation.Controllers
 {
+    
+    [ApiController]
+    [Route("[controller]")]
     public class VehicleController : Controller
     {
         private readonly IVehicleService _vehicleService;
@@ -61,7 +64,7 @@ namespace _NET_MinimalAPI.Presentation.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("/{id}")]
+        [Route("{id}")]
         [Authorize(Roles = "adm,editor")]
         public IActionResult GetUniqueVehicle([FromRoute] int id)
         {
