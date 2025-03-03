@@ -10,7 +10,7 @@ namespace _NET_MinimalAPI.test.Domain.Entities
     public class AdministratorTest
     {
         [TestMethod]
-        public void TestProperties()
+        public void PropertiesTest()
         {
             // --- Arrange
             var adm = new Administrator();
