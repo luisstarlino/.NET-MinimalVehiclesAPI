@@ -1,7 +1,32 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Luis\\Documents\\Luis\\Desenvovimento\\Projetos-dotnet\\.NET-MinimalAPI\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5AEAF816-037D-421E-A50B-358AA7834AB0}|.NET-MinimalAPI.test\\.NET-MinimalAPI.test.csproj|c:\\users\\luis\\documents\\luis\\desenvovimento\\projetos-dotnet\\.net-minimalapi\\.net-minimalapi.test\\tests\\mocks\\services\\administratorservicemock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AEAF816-037D-421E-A50B-358AA7834AB0}|.NET-MinimalAPI.test\\.NET-MinimalAPI.test.csproj|solutionrelative:.net-minimalapi.test\\tests\\mocks\\services\\administratorservicemock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AEAF816-037D-421E-A50B-358AA7834AB0}|.NET-MinimalAPI.test\\.NET-MinimalAPI.test.csproj|c:\\users\\luis\\documents\\luis\\desenvovimento\\projetos-dotnet\\.net-minimalapi\\.net-minimalapi.test\\setuptest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AEAF816-037D-421E-A50B-358AA7834AB0}|.NET-MinimalAPI.test\\.NET-MinimalAPI.test.csproj|solutionrelative:.net-minimalapi.test\\setuptest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2455D27D-C889-419A-9FF7-59F3E26CB14B}|.NET-MinimalAPI.api\\.NET-MinimalAPI.csproj|c:\\users\\luis\\documents\\luis\\desenvovimento\\projetos-dotnet\\.net-minimalapi\\.net-minimalapi.api\\domain\\services\\administratorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2455D27D-C889-419A-9FF7-59F3E26CB14B}|.NET-MinimalAPI.api\\.NET-MinimalAPI.csproj|solutionrelative:.net-minimalapi.api\\domain\\services\\administratorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AEAF816-037D-421E-A50B-358AA7834AB0}|.NET-MinimalAPI.test\\.NET-MinimalAPI.test.csproj|c:\\users\\luis\\documents\\luis\\desenvovimento\\projetos-dotnet\\.net-minimalapi\\.net-minimalapi.test\\request\\administratorrequesttest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AEAF816-037D-421E-A50B-358AA7834AB0}|.NET-MinimalAPI.test\\.NET-MinimalAPI.test.csproj|solutionrelative:.net-minimalapi.test\\request\\administratorrequesttest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AEAF816-037D-421E-A50B-358AA7834AB0}|.NET-MinimalAPI.test\\.NET-MinimalAPI.test.csproj|c:\\users\\luis\\documents\\luis\\desenvovimento\\projetos-dotnet\\.net-minimalapi\\.net-minimalapi.test\\tests\\unittests\\entities\\administratortest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AEAF816-037D-421E-A50B-358AA7834AB0}|.NET-MinimalAPI.test\\.NET-MinimalAPI.test.csproj|solutionrelative:.net-minimalapi.test\\tests\\unittests\\entities\\administratortest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AEAF816-037D-421E-A50B-358AA7834AB0}|.NET-MinimalAPI.test\\.NET-MinimalAPI.test.csproj|c:\\users\\luis\\documents\\luis\\desenvovimento\\projetos-dotnet\\.net-minimalapi\\.net-minimalapi.test\\tests\\unittests\\administratorservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AEAF816-037D-421E-A50B-358AA7834AB0}|.NET-MinimalAPI.test\\.NET-MinimalAPI.test.csproj|solutionrelative:.net-minimalapi.test\\tests\\unittests\\administratorservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,8 +34,87 @@
       "DocumentGroups": [
         {
           "DockedWidth": 304,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SetupTest.cs",
+              "DocumentMoniker": "C:\\Users\\Luis\\Documents\\Luis\\Desenvovimento\\Projetos-dotnet\\.NET-MinimalAPI\\.NET-MinimalAPI.test\\SetupTest.cs",
+              "RelativeDocumentMoniker": ".NET-MinimalAPI.test\\SetupTest.cs",
+              "ToolTip": "C:\\Users\\Luis\\Documents\\Luis\\Desenvovimento\\Projetos-dotnet\\.NET-MinimalAPI\\.NET-MinimalAPI.test\\SetupTest.cs",
+              "RelativeToolTip": ".NET-MinimalAPI.test\\SetupTest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T12:36:24.808Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdministratorService.cs",
+              "DocumentMoniker": "C:\\Users\\Luis\\Documents\\Luis\\Desenvovimento\\Projetos-dotnet\\.NET-MinimalAPI\\.NET-MinimalAPI.api\\Domain\\Services\\AdministratorService.cs",
+              "RelativeDocumentMoniker": ".NET-MinimalAPI.api\\Domain\\Services\\AdministratorService.cs",
+              "ToolTip": "C:\\Users\\Luis\\Documents\\Luis\\Desenvovimento\\Projetos-dotnet\\.NET-MinimalAPI\\.NET-MinimalAPI.api\\Domain\\Services\\AdministratorService.cs",
+              "RelativeToolTip": ".NET-MinimalAPI.api\\Domain\\Services\\AdministratorService.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAnwCkAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T13:11:11.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AdministratorRequestTest.cs",
+              "DocumentMoniker": "C:\\Users\\Luis\\Documents\\Luis\\Desenvovimento\\Projetos-dotnet\\.NET-MinimalAPI\\.NET-MinimalAPI.test\\Request\\AdministratorRequestTest.cs",
+              "RelativeDocumentMoniker": ".NET-MinimalAPI.test\\Request\\AdministratorRequestTest.cs",
+              "ToolTip": "C:\\Users\\Luis\\Documents\\Luis\\Desenvovimento\\Projetos-dotnet\\.NET-MinimalAPI\\.NET-MinimalAPI.test\\Request\\AdministratorRequestTest.cs",
+              "RelativeToolTip": ".NET-MinimalAPI.test\\Request\\AdministratorRequestTest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T13:10:22.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AdministratorTest.cs",
+              "DocumentMoniker": "C:\\Users\\Luis\\Documents\\Luis\\Desenvovimento\\Projetos-dotnet\\.NET-MinimalAPI\\.NET-MinimalAPI.test\\Tests\\UnitTests\\Entities\\AdministratorTest.cs",
+              "RelativeDocumentMoniker": ".NET-MinimalAPI.test\\Tests\\UnitTests\\Entities\\AdministratorTest.cs",
+              "ToolTip": "C:\\Users\\Luis\\Documents\\Luis\\Desenvovimento\\Projetos-dotnet\\.NET-MinimalAPI\\.NET-MinimalAPI.test\\Tests\\UnitTests\\Entities\\AdministratorTest.cs",
+              "RelativeToolTip": ".NET-MinimalAPI.test\\Tests\\UnitTests\\Entities\\AdministratorTest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T13:06:43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdministratorServiceTest.cs",
+              "DocumentMoniker": "C:\\Users\\Luis\\Documents\\Luis\\Desenvovimento\\Projetos-dotnet\\.NET-MinimalAPI\\.NET-MinimalAPI.test\\Tests\\UnitTests\\AdministratorServiceTest.cs",
+              "RelativeDocumentMoniker": ".NET-MinimalAPI.test\\Tests\\UnitTests\\AdministratorServiceTest.cs",
+              "ToolTip": "C:\\Users\\Luis\\Documents\\Luis\\Desenvovimento\\Projetos-dotnet\\.NET-MinimalAPI\\.NET-MinimalAPI.test\\Tests\\UnitTests\\AdministratorServiceTest.cs",
+              "RelativeToolTip": ".NET-MinimalAPI.test\\Tests\\UnitTests\\AdministratorServiceTest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T13:02:04.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdministratorServiceMock.cs",
+              "DocumentMoniker": "C:\\Users\\Luis\\Documents\\Luis\\Desenvovimento\\Projetos-dotnet\\.NET-MinimalAPI\\.NET-MinimalAPI.test\\Tests\\Mocks\\Services\\AdministratorServiceMock.cs",
+              "RelativeDocumentMoniker": ".NET-MinimalAPI.test\\Tests\\Mocks\\Services\\AdministratorServiceMock.cs",
+              "ToolTip": "C:\\Users\\Luis\\Documents\\Luis\\Desenvovimento\\Projetos-dotnet\\.NET-MinimalAPI\\.NET-MinimalAPI.test\\Tests\\Mocks\\Services\\AdministratorServiceMock.cs",
+              "RelativeToolTip": ".NET-MinimalAPI.test\\Tests\\Mocks\\Services\\AdministratorServiceMock.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T13:01:46.031Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -18,10 +122,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }

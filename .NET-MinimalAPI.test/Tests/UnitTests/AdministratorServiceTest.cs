@@ -1,14 +1,13 @@
-﻿using _NET_MinimalAPI.Domain.Services;
+﻿using Microsoft.Extensions.Configuration;
+using _NET_MinimalAPI.Domain.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace _NET_MinimalAPI.test.Domain.Services
+
+namespace _NET_MinimalAPI.test.Test.UnitTest
 {
+    /// <summary>
+    /// *************** PERSISTENCE UNITY TEST *************** 
+    /// </summary>
     [TestClass]
     public class AdministratorServiceTest
     {
@@ -22,7 +21,7 @@ namespace _NET_MinimalAPI.test.Domain.Services
             context.Database.ExecuteSqlRaw("TRUNCATE TABLE Administrators");
 
             var adm = new Administrator()
-            { 
+            {
                 Id = 1,
                 Mail = "mail@mail.com",
                 Password = "password",
@@ -63,7 +62,7 @@ namespace _NET_MinimalAPI.test.Domain.Services
 
 
 
-        private DBContext CreateTestContext ()
+        private DBContext CreateTestContext()
         {
             // --- Builder settings
             var builder = new ConfigurationBuilder()
@@ -83,7 +82,7 @@ namespace _NET_MinimalAPI.test.Domain.Services
 
 
 
-            return new DBContext(options); 
+            return new DBContext(options);
         }
     }
 }

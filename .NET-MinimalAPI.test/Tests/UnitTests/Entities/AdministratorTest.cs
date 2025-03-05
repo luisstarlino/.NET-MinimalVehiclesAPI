@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _NET_MinimalAPI.test.Domain.Entities
+namespace _NET_MinimalAPI.test.Tests.UnitTests.Entities
 {
     [TestClass]
     public class AdministratorTest
