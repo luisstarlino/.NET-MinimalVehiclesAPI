@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace _NET_MinimalAPI.test.Tests.Mocks.Services
 {
     /// <summary>
-    /// *************** INTEGRATION TESTS *************** 
+    /// MOCK IN MEMORY TO UNIT TESTS 
     /// </summary>
     public class AdministratorServiceMock : IAdministratorService
     {
